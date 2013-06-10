@@ -1,0 +1,143 @@
+Overview
+
+This is a simple Folding@Home installer/configuration script for Linux.  It has
+been tested with Ubuntu Linux 5.10, but should work on any LSB-compliant Linux
+system with SysV-style init.  It will
+
+    - download the client
+    - set it up for the number of processors in your system
+    - install for either you (i.e. in your $HOME) or for the system
+        - if installing for the system, create a foldingathome user
+    - give you a start/stop script
+
+
+Installation
+
+To install, simply go to the directory where the installer is, and run it.  You
+cannot run the installer from another directory; it assumes that all of it's
+files are in the current directory.  Example:
+
+    $ cd /path/to/fah_install/
+    $ sudo ./install.sh install
+
+There are two ways to install: install to the system or to your $HOME.  If the
+installer is run as root, then it will install to the system, otherwise it will
+install to the home directory of whoever is running it.  When installing to the
+system, it will put the init script in /etc/init.d and create symlinks in rc?.d
+to automatically start the client at boot time.  If you install to your $HOME,
+it will put the init script in the same folder as the client and create a cron
+job to start it every hour.  The init script should be idempotent -- that is,
+running it many times is the same as running it once.  It should only start as
+many clients as there are CPUs, so if another user has started clients, you or
+anyone else will not be able to.
+
+If the installer needs to be downloaded by hand, you need to place it
+in the same directory as the install.sh script.
+
+Configuration
+
+There are two ways to configure the client.  First, you can use the client's
+question/answer configuration.  The reconfigure.sh script, located in the
+foldingathome directory, is the proper way to do this.  Using it ensures that
+everything will be updated correctly.  
+
+The other route to configuration is by giving options to the client when
+starting it.  The init script will get these options from two sources.  The
+first is /etc/default/foldingathome.  This is for system-wide options.  All
+clients will look for it, even those installed to a user's $HOME directory.  The
+other place is in the configuration directory, foldingathome/config.  In here
+there should be an option file for each client.  These per-client options will
+override the system-wide options.
+
+
+Running
+
+If you installed to the system, the client should start at boot.  If something
+goes wrong, you can interact with the client with the script
+/etc/init.d/foldingathome.  It accepts the options "start", "stop", "restart",
+and "send".  Send sends all complete work units, e.g. you have a laptop that is
+not connected all the time, you can easily upload if you have a transient
+connection.  The others are self evident in function.  You should only specify
+one option.  Example:
+
+    $ sudo /etc/init.d/foldingathome restart
+
+If you installed to your home directory, then it works as above, but resides in
+$HOME/opt/foldingathome.  The client should start automatically; it is set up as
+a cron job.
+
+
+Updates
+
+You can easily update the init script and basically everything but the client
+itself with the update option.  If you have a different version of the client,
+you must uninstall.
+
+It *might* work to install a new version of the client directly on top
+of an old one, but this really isn t recommended.  The danger is that
+the work unit will get corrupted.  Do a backup of /opt/foldingathome
+before attempting this.
+
+
+Uninstalling
+
+Before uninstalling, you should stop any running clients.  You can use the
+commmand `ps -ef | grep -i fah` to see if any clients are running.  Stop them
+with the init script or kill.
+
+There are two ways to uninstall.  You can use the installer script, which is
+fairly self explanatory.  If you don't have the installer anymore, or it is not
+working, then you can manually delete the files that have been installed.  The
+following is a list of files and directories that are installed by the
+installer.  
+
+    /opt/foldingathome
+    /home/*/opt/foldingathome
+    /etc/default/foldingathome
+    /etc/init.d/foldingathome
+
+
+Additional Notes
+
+For those with HyperThreading, only physical CPUs will count as a CPU.  This is
+the recommended way to run the client, because although running two clients on
+an HT CPU will be about 30% more productive than running a single client, each
+client will run at about 65% of a single client.  Fast results are more
+important than slow results in this project, so it is better to run a single
+client.  See http://forum.folding-community.org/viewtopic.php?t=10427 for more
+information.  If you still want to run more clients, or the installer guesses
+the wrong number of physical CPUs, then you can specify teh number you want
+during installation.
+
+For added security, the installer will create a foldingathome user, whose
+account is disabled.  The init script will start the client as this user if the
+script is run as root.  This way, the client should never run as root.  There
+has never been a reported security flaw in the client or a breach caused by the
+client, as far as I know, but every little bit helps.  If installed to $HOME,
+then the client is run as the user.
+
+If your internet connection is not stable, e.g. you use dail up or you have a
+laptop that travels and doesn't always get a connection, then you may not be
+online long enough to upload finished work units.  You can upload all finished
+work units manually by running the init script with the send option.  You do not
+have to shut down running clients to send results.
+
+
+Other Resources
+
+This collection of scripts should be available at the Ubuntu Linux Wiki at
+https://help.ubuntu.com/community/FoldingAtHome.  There are also additional
+notes and links at that page.  If you have trouble installing this, feel free to
+email me (address below).
+
+
+Disclaimer
+
+This script is just a simple thing I came up with.  I was inspired by the Gentoo
+Linux Folding@Home ebuild, and the way it easily ran as many clients as CPUs on
+the system.  I have borrowed from that.  I have tested it with my system, and
+will attempt to help you if you have trouble.  That said, I take no
+responsibility for any damage done to your system, so use this at your own risk.
+
+Jonathan Kotta
+jpkottaATgmailDOTcom

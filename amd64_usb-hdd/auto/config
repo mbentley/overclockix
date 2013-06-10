@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+lb config noauto \
+	--distribution wheezy \
+	--archive-areas "main contrib non-free" \
+	--architecture amd64 \
+	--linux-flavours amd64 \
+	--binary-images hdd \
+	--apt-recommends false \
+	--iso-application "Overclockix" \
+	--iso-preparer "mbentley" \
+	--iso-publisher "Overclockix Live project; http://www.overclockix.com; mbentley@overclockix.com" \
+	--iso-volume "Overclockix" \
+	--bootappend-live "boot=live config quiet splash persistence" \
+	"${@}"
