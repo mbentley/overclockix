@@ -1,5 +1,5 @@
 # Overclockix 
-For more information about the Overclockix project, see http://www.overclockix.com
+For more information about the Overclockix project, including downloads, see http://www.overclockix.com
 
 ## Prerequisites for live-build
 In order to work with Overclockix using live-build, you must first meet the following prerequesites:
