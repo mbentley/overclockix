@@ -9,6 +9,7 @@ lb config noauto \
 	--linux-flavours amd64 \
 	--binary-images iso-hybrid \
 	--apt-recommends false \
+	--firmware-chroot true \
 	--iso-application "Overclockix" \
 	--iso-preparer "mbentley" \
 	--iso-publisher "Overclockix Live project; http://www.overclockix.com; mbentley@overclockix.com" \
