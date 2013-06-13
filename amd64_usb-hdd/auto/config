@@ -10,6 +10,7 @@ lb config noauto \
 	--binary-images hdd \
 	--apt-recommends false \
 	--firmware-chroot true \
+	--cache-packages false \
 	--iso-application "Overclockix" \
 	--iso-preparer "mbentley" \
 	--iso-publisher "Overclockix Live project; http://www.overclockix.com; mbentley@overclockix.com" \
