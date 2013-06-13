@@ -7,15 +7,8 @@ cp .bash_logout .bashrc .profile /root/
 # set custom wallpaper
 update-alternatives --install /usr/share/images/desktop-base/desktop-background.xml desktop-background.xml /usr/share/backgrounds/overclockix.xml 100
 
-### old wallpaper hack
-#rm /usr/share/images/desktop-base/joy-wallpaper_1280x1024.svg /usr/share/images/desktop-base/joy-wallpaper_1600x1200.svg /usr/share/images/desktop-base/joy-wallpaper_1920x1080.svg /usr/share/images/desktop-base/joy-wallpaper_1920x1200.svg
-#ln -s /usr/share/backgrounds/overclockix_background.jpg /usr/share/images/desktop-base/joy-wallpaper_1280x1024.svg
-#ln -s /usr/share/backgrounds/overclockix_background.jpg /usr/share/images/desktop-base/joy-wallpaper_1600x1200.svg
-#ln -s /usr/share/backgrounds/overclockix_background.jpg /usr/share/images/desktop-base/joy-wallpaper_1920x1080.svg
-#ln -s /usr/share/backgrounds/overclockix_background.jpg /usr/share/images/desktop-base/joy-wallpaper_1920x1200.svg
-
 # disable screensaver lock
-### this does not work
+### this does not work; need to figure out how to do this properly in gnome 3
 #gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gnome-screensaver/lock_enabled false
 
 echo "done."
