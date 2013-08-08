@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd /usr/local/bin
+
+if [ `getconf LONG_BIT` = "64" ]
+then
+	wget -O i7z http://i7z.googlecode.com/svn/trunk/i7z_64bit
+else
+	wget -O i7z http://i7z.googlecode.com/svn/trunk/i7z_32bit
+fi
+
+chmod +rx i7z

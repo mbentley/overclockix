@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# create symlink to mprime
+ln -s /opt/mprime/mprime /usr/local/bin/mprime
+ln -s /opt/mprime/mprime /usr/local/bin/prime95
