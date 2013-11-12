@@ -1,0 +1,37 @@
+#!/bin/bash
+
+### changes the following bootloader options:
+###    -modify  boot timeout from 0 (wait for user) to 100 (auto-select in 10 seconds)
+###    -comment out install.cfg options as the installer won't be used
+###    -download the custom splash.png image
+###        the above were  taken from http://live.debian.net/manual/stable/html/live-manual.en.html#563
+###    -add memtest86+ to the booloader menu
+###
+
+if [ -d binary/isolinux ]
+then
+	sed -i -e 's|timeout 0|timeout 100|' binary/isolinux/isolinux.cfg
+	sed -i -e 's|include install.cfg|#include install.cfg|' binary/isolinux/menu.cfg
+	wget -O binary/isolinux/splash.png http://www.overclockix.com/random/splash.png
+
+	cat >> binary/isolinux/live.cfg << EOF
+
+label memtest
+        menu label ^Memory Diagnostic Tool (memtest86+)
+        linux /live/memtest
+EOF
+fi
+
+if [ -d binary/syslinux ]
+then
+	sed -i -e 's|timeout 0|timeout 100|' binary/syslinux/syslinux.cfg
+	sed -i -e 's|include install.cfg|#include install.cfg|' binary/syslinux/menu.cfg
+	wget -O binary/syslinux/splash.png http://www.overclockix.com/random/splash.png
+
+	cat >> binary/syslinux/live.cfg << EOF
+
+label memtest
+        menu label ^Memory Diagnostic Tool (memtest86+)
+        linux /live/memtest
+EOF
+fi

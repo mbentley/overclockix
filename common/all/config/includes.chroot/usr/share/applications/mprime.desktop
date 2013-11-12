@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=mprime
+GenericName=CPU Stress Tester
+Type=Application
+Exec=gnome-terminal -e "/opt/mprime/mprime"
+Categories=Stress;System;Application;
+Icon=/opt/mprime/mprime.png

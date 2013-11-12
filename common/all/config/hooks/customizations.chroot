@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# customize root's profile
+cd /etc/skel
+cp .bash_logout .bashrc .profile /root/
+
+# set custom wallpaper
+update-alternatives --install /usr/share/images/desktop-base/desktop-background.xml desktop-background.xml /usr/share/backgrounds/overclockix.xml 100
+
+# disable screensaver lock
+### this does not work; need to figure out how to do this properly in gnome 3
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gnome-screensaver/lock_enabled false
+
+echo "done."

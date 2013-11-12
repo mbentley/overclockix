@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Performing cleanup from build requirements of virtualbox-guest-dkms"
+apt-get purge --yes linux-headers-*
+apt-get autoremove --yes
+echo "done."

@@ -1,0 +1,21 @@
+# Folding@Home Linux individual client options.
+
+# This file contains per-client options.  It will override options specified in 
+# /etc/default/foldingathome, if it exists.  Options specified here will only be
+# applied to the client for which this file is named.  For example, if this file
+# is client2.options, it will affect only client 2.  This way you can specify
+# different options for different clients in an SMP system.
+# To specify options for all clients, use /etc/default/foldingathome.
+
+# This file is simply a shell script that is sourced by the foldingathome init
+# script.  Everything after a '#' is ignored.
+
+# Use the CLIENT_OPTS variable to set any options that you want the client to
+# use.  Run the client executable with the help option (e.g. "FAH504-Linux.exe
+# -help") to learn what options are available.
+# Options specified here will override system-wide options.
+# To keep system-wide options, use CLIENT_OPTS="$CLIENT_OPTS -opt1 -opt2 ..."
+# Remember that double quotes are different than single quotes.
+# Example: CLIENT_OPTS='-advmethods -forceasm'
+#CLIENT_OPTS=''
+

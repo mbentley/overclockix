@@ -1,0 +1,31 @@
+2008-10-16:
+    Fixed CPU count.
+
+2008-10-02:
+    Updated for 6.02 release.
+
+2008-02-06:
+    Minor typo.
+    Updated for 6.00beta2.
+
+2007-10-14:
+    Updated SMP/beta URL.
+
+2007-10-08:
+    Updated to 6.00(beta1) SMP client.
+
+2007-07-02:
+    Added SMP client
+    overhaul install.sh 	
+
+2007-04-18:
+    Added option to choose 5.04 client.
+    Download client from https with http fallback.
+
+2006-12-19:
+    Fixed bug init script where client ran as root in Edgy.  Caused by $UID == "".
+    Fixed bug reconfigure script where ownership was not changed to foldingathome user in Edgy.  Caused by $UID == "".
+    Improved physical CPU counter and added option of specifying number of CPUs manually.
+    Made reconfigure script Bourne shell compliant.
+    Fixed bug in status option of init script that reported client as running when it was not.
+

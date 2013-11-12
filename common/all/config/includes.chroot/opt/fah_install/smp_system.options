@@ -1,0 +1,19 @@
+# Folding@Home Linux client system default options.
+
+# This file contains system-wide options for Folding@Home.  They are applied to
+# all clients, whether in /opt/foldingathome or a user's $HOME directory.  They
+# can be overridden on a per-client basis by using
+# $folding_dir/config/client<num>.options.
+
+# This file is simply a shell script that is sourced by the foldingathome init
+# script.  Everything after a '#' is ignored.
+
+# Use the CLIENT_OPTS variable to set any options that you want the client to
+# use.  Run the client executable with the help option (e.g. "FAH504-Linux.exe
+# -help") to learn what options are available.
+# Example: CLIENT_OPTS='-advmethods -forceasm'
+
+# IMPORTANT NOTE TO SMP USERS:
+# As of version 6.00(beta1), you must add the "-smp" option to get SMP work units!
+
+CLIENT_OPTS='-smp'

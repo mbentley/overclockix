@@ -1,0 +1,96 @@
+#!/bin/bash
+
+# change the 'base_dir' variable to be the location where you have cloned the repo (i.e. - where README.md exists)
+base_dir="/opt/live/overclockix"
+
+# do not edit anything below here unless you know what you are doing
+arch_i386="i386_iso-hybrid i386_usb-hdd"
+arch_amd64="amd64_iso-hybrid amd64_usb-hdd"
+
+cd ${base_dir}
+
+# create hard links for both i386 builds
+for i in ${arch_i386}
+do
+ln ./common/i386/config/includes.chroot/opt/mprime/mprime ./${i}/config/includes.chroot/opt/mprime/mprime
+ln ./common/i386/config/includes.chroot/opt/mprime/readme.txt ./${i}/config/includes.chroot/opt/mprime/readme.txt
+ln ./common/i386/config/includes.chroot/opt/mprime/license.txt ./${i}/config/includes.chroot/opt/mprime/license.txt
+ln ./common/i386/config/includes.chroot/opt/mprime/mprime.png ./${i}/config/includes.chroot/opt/mprime/mprime.png
+ln ./common/i386/config/includes.chroot/opt/mprime/whatsnew.txt ./${i}/config/includes.chroot/opt/mprime/whatsnew.txt
+ln ./common/i386/config/includes.chroot/opt/mprime/stress.txt ./${i}/config/includes.chroot/opt/mprime/stress.txt
+ln ./common/i386/config/includes.chroot/opt/mprime/undoc.txt ./${i}/config/includes.chroot/opt/mprime/undoc.txt
+ln ./common/i386/config/packages.chroot/aptitude-gui_1.0.0-0_i386.deb ./${i}/config/packages.chroot/aptitude-gui_1.0.0-0_i386.deb
+ln ./common/i386/config/packages.chroot/shred-gui_1.0.0-0_i386.deb ./${i}/config/packages.chroot/shred-gui_1.0.0-0_i386.deb
+ln ./common/i386/config/packages.chroot/libssl0.9.8_0.9.8o-4squeeze14_i386.deb ./${i}/config/packages.chroot/libssl0.9.8_0.9.8o-4squeeze14_i386.deb
+
+ln ./common/all/auto/clean ./${i}/auto/clean
+ln ./common/all/auto/build ./${i}/auto/build
+ln ./common/all/config/package-lists/10-overclockix.list.chroot ./${i}/config/package-lists/10-overclockix.list.chroot
+ln ./common/all/config/package-lists/20-video_drivers.list.chroot ./${i}/config/package-lists/20-video_drivers.list.chroot
+ln ./common/all/config/package-lists/15-virtualbox_guest_additions.list.chroot ./${i}/config/package-lists/15-virtualbox_guest_additions.list.chroot
+ln ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg
+ln ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix.xml ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix.xml
+ln ./common/all/config/includes.chroot/usr/share/applications/mprime.desktop ./${i}/config/includes.chroot/usr/share/applications/mprime.desktop
+ln ./common/all/config/includes.chroot/opt/fah_install/reconfigure.sh ./${i}/config/includes.chroot/opt/fah_install/reconfigure.sh
+ln ./common/all/config/includes.chroot/opt/fah_install/CHANGELOG ./${i}/config/includes.chroot/opt/fah_install/CHANGELOG
+ln ./common/all/config/includes.chroot/opt/fah_install/README ./${i}/config/includes.chroot/opt/fah_install/README
+ln ./common/all/config/includes.chroot/opt/fah_install/smp_system.options ./${i}/config/includes.chroot/opt/fah_install/smp_system.options
+ln ./common/all/config/includes.chroot/opt/fah_install/foldingathome ./${i}/config/includes.chroot/opt/fah_install/foldingathome
+ln ./common/all/config/includes.chroot/opt/fah_install/system.options ./${i}/config/includes.chroot/opt/fah_install/system.options
+ln ./common/all/config/includes.chroot/opt/fah_install/client.options ./${i}/config/includes.chroot/opt/fah_install/client.options
+ln ./common/all/config/includes.chroot/opt/fah_install/install.sh ./${i}/config/includes.chroot/opt/fah_install/install.sh
+ln ./common/all/config/includes.chroot/etc/live/config.conf ./${i}/config/includes.chroot/etc/live/config.conf
+ln ./common/all/config/includes.chroot/etc/skel/.profile ./${i}/config/includes.chroot/etc/skel/.profile
+ln ./common/all/config/includes.chroot/etc/skel/.bash_logout ./${i}/config/includes.chroot/etc/skel/.bash_logout
+ln ./common/all/config/includes.chroot/etc/skel/.bashrc ./${i}/config/includes.chroot/etc/skel/.bashrc
+ln ./common/all/config/hooks/i7z.chroot ./${i}/config/hooks/i7z.chroot
+ln ./common/all/config/hooks/virtualbox_guest_additions.chroot ./${i}/config/hooks/virtualbox_guest_additions.chroot
+ln ./common/all/config/hooks/mprime.chroot ./${i}/config/hooks/mprime.chroot
+ln ./common/all/config/hooks/bootloader_customization.binary ./${i}/config/hooks/bootloader_customization.binary
+ln ./common/all/config/hooks/customizations.chroot ./${i}/config/hooks/customizations.chroot
+ln ./common/all/config/hooks/localepurge.chroot ./${i}/config/hooks/localepurge.chroot
+ln ./common/all/build.sh ./${i}/build.sh
+done
+
+# create hard links for both amd64 builds
+for i in ${arch_amd64}
+do
+ln ./common/amd64/config/includes.chroot/opt/mprime/mprime ./${i}/config/includes.chroot/opt/mprime/mprime
+ln ./common/amd64/config/includes.chroot/opt/mprime/readme.txt ./${i}/config/includes.chroot/opt/mprime/readme.txt
+ln ./common/amd64/config/includes.chroot/opt/mprime/license.txt ./${i}/config/includes.chroot/opt/mprime/license.txt
+ln ./common/amd64/config/includes.chroot/opt/mprime/mprime.png ./${i}/config/includes.chroot/opt/mprime/mprime.png
+ln ./common/amd64/config/includes.chroot/opt/mprime/whatsnew.txt ./${i}/config/includes.chroot/opt/mprime/whatsnew.txt
+ln ./common/amd64/config/includes.chroot/opt/mprime/stress.txt ./${i}/config/includes.chroot/opt/mprime/stress.txt
+ln ./common/amd64/config/includes.chroot/opt/mprime/undoc.txt ./${i}/config/includes.chroot/opt/mprime/undoc.txt
+ln ./common/amd64/config/packages.chroot/libssl0.9.8_0.9.8o-4squeeze14_amd64.deb ./${i}/config/packages.chroot/libssl0.9.8_0.9.8o-4squeeze14_amd64.deb
+ln ./common/amd64/config/packages.chroot/shred-gui_1.0.0-0_amd64.deb ./${i}/config/packages.chroot/shred-gui_1.0.0-0_amd64.deb
+ln ./common/amd64/config/packages.chroot/aptitude-gui_1.0.0-0_amd64.deb ./${i}/config/packages.chroot/aptitude-gui_1.0.0-0_amd64.deb
+
+ln ./common/all/auto/clean ./${i}/auto/clean
+ln ./common/all/auto/build ./${i}/auto/build
+ln ./common/all/config/package-lists/10-overclockix.list.chroot ./${i}/config/package-lists/10-overclockix.list.chroot
+ln ./common/all/config/package-lists/20-video_drivers.list.chroot ./${i}/config/package-lists/20-video_drivers.list.chroot
+ln ./common/all/config/package-lists/15-virtualbox_guest_additions.list.chroot ./${i}/config/package-lists/15-virtualbox_guest_additions.list.chroot
+ln ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg
+ln ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix.xml ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix.xml
+ln ./common/all/config/includes.chroot/usr/share/applications/mprime.desktop ./${i}/config/includes.chroot/usr/share/applications/mprime.desktop
+ln ./common/all/config/includes.chroot/opt/fah_install/reconfigure.sh ./${i}/config/includes.chroot/opt/fah_install/reconfigure.sh
+ln ./common/all/config/includes.chroot/opt/fah_install/CHANGELOG ./${i}/config/includes.chroot/opt/fah_install/CHANGELOG
+ln ./common/all/config/includes.chroot/opt/fah_install/README ./${i}/config/includes.chroot/opt/fah_install/README
+ln ./common/all/config/includes.chroot/opt/fah_install/smp_system.options ./${i}/config/includes.chroot/opt/fah_install/smp_system.options
+ln ./common/all/config/includes.chroot/opt/fah_install/foldingathome ./${i}/config/includes.chroot/opt/fah_install/foldingathome
+ln ./common/all/config/includes.chroot/opt/fah_install/system.options ./${i}/config/includes.chroot/opt/fah_install/system.options
+ln ./common/all/config/includes.chroot/opt/fah_install/client.options ./${i}/config/includes.chroot/opt/fah_install/client.options
+ln ./common/all/config/includes.chroot/opt/fah_install/install.sh ./${i}/config/includes.chroot/opt/fah_install/install.sh
+ln ./common/all/config/includes.chroot/etc/live/config.conf ./${i}/config/includes.chroot/etc/live/config.conf
+ln ./common/all/config/includes.chroot/etc/skel/.profile ./${i}/config/includes.chroot/etc/skel/.profile
+ln ./common/all/config/includes.chroot/etc/skel/.bash_logout ./${i}/config/includes.chroot/etc/skel/.bash_logout
+ln ./common/all/config/includes.chroot/etc/skel/.bashrc ./${i}/config/includes.chroot/etc/skel/.bashrc
+ln ./common/all/config/hooks/i7z.chroot ./${i}/config/hooks/i7z.chroot
+ln ./common/all/config/hooks/virtualbox_guest_additions.chroot ./${i}/config/hooks/virtualbox_guest_additions.chroot
+ln ./common/all/config/hooks/mprime.chroot ./${i}/config/hooks/mprime.chroot
+ln ./common/all/config/hooks/bootloader_customization.binary ./${i}/config/hooks/bootloader_customization.binary
+ln ./common/all/config/hooks/customizations.chroot ./${i}/config/hooks/customizations.chroot
+ln ./common/all/config/hooks/localepurge.chroot ./${i}/config/hooks/localepurge.chroot
+ln ./common/all/build.sh ./${i}/build.sh
+done

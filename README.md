@@ -11,6 +11,8 @@ From the directory in which you want to clone the repository, execute the follow
 ```
 git clone https://github.com/mbentley/overclockix.git
 ```
+## Re-create hard links for 'common'
+In order to make the management of common files easier, I used hard links on my build system.  These hard link do not transfer properly to github and symlinks do not work with the live-build system.  I have created a script (found in scripts) that will automatically re-create all of the hard links.
 
 ## Build Instructions
 Make sure that you are in the repository directory (e.g. overclockix/i386_iso-hybrid) and then execute the following commands:

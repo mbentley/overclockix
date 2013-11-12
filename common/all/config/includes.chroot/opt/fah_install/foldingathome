@@ -1,0 +1,201 @@
+#!/bin/sh
+#
+# Original version by Jonathan Kotta <jpkottaATgmailDOTcom>
+
+# init script for the Linux Folding@Home client
+
+PATH=/bin:/usr/bin:/sbin
+. /lib/lsb/init-functions
+
+# vvv these variables are modified by the install script vvv
+fah_dir=/opt/foldingathome
+executable=fah6
+# ^^^ these variables are modified by the install script ^^^
+
+config_dir=$fah_dir/config
+# typically, this is /var/run, but users don't have access to that
+pid_dir=/var/tmp
+
+if [ x"$UID" = x0 -o x"$USER" = xroot -o x"$USER" = x ] ; then
+    user=foldingathome
+else
+    user=$USER
+fi
+
+# there must always be at least one processor
+test -x $fah_dir/1/$executable || exit 1
+
+CLIENT_OPTS=''
+if [ -f /etc/default/foldingathome ] ; then
+    # system-wide defaults
+    # per-client defaults can be set as well
+    . /etc/default/foldingathome
+fi
+
+################################################################################
+start()
+{
+    # this is a work around for a bug in start-stop-daemon
+    # Debian Bug #222524
+    if [ x"$USER" = x"$user" ] ; then
+        user_flag=''
+    else
+        user_flag="--chuid $user"
+    fi
+    
+    num=0
+    for client_dir in $fah_dir/[1-9] ; do
+        num=`expr $num + 1`
+        cd $client_dir
+        log_begin_msg "Starting Folding@Home client $num"
+
+        # per-client options
+        # the client?.options file is just like the defaults file
+        options_file="$config_dir/client${num}.options"
+        if [ -f $options_file ] ; then
+            . $options_file
+        fi
+
+        start-stop-daemon --start --background --quiet \
+            --chdir $client_dir \
+            --nicelevel 19 \
+            $user_flag \
+            --exec $client_dir/$executable \
+            --make-pidfile --pidfile $pid_dir/$executable-$num.pid \
+            -- $CLIENT_OPTS
+
+        err=$?
+        if [ x"$err" = x0 ] ; then
+            log_end_msg $err
+        else
+            log_end_msg $err
+        fi
+    done
+}
+
+################################################################################
+stop()
+{
+    num=0
+    for client_dir in $fah_dir/[1-9] ; do
+        num=`expr $num + 1`
+        log_begin_msg "Stopping Folding@Home client $num"
+        
+        start-stop-daemon --stop --quiet \
+            --retry 10 \
+            --user $user \
+            --exec $client_dir/$executable \
+            --pidfile $pid_dir/$executable-$num.pid 
+        
+        err=$?
+        if [ x"$err" = x0 ] ; then
+            rm -f $pid_dir/$executable-$num.pid
+            log_end_msg $err
+        else
+            log_end_msg $err
+        fi
+    done
+}
+
+################################################################################
+send()
+{
+    num=0
+    for client_dir in $fah_dir/[1-9] ; do
+        num=`expr $num + 1`
+        log_begin_msg "Sending Results for Folding@Home client $num"
+        
+        su \
+            --shell /bin/sh \
+            --command "cd $client_dir/ ; ./$executable -send all" \
+            -- $user
+
+        err=$?
+        if [ x"$err" = x0 ] ; then
+            log_end_msg $err
+        else
+            log_end_msg $err
+        fi
+    done
+}
+
+################################################################################
+status()
+{
+    for client_dir in $fah_dir/[1-9] ; do
+        echo "Logfile in $client_dir:"
+        tail $client_dir/FAHlog.txt
+        echo
+    done
+
+    if is_running ; then
+        echo "Client is running."
+    else
+        echo "Client is not running."
+    fi
+}
+
+################################################################################
+is_running()
+{
+    num=0
+    running=1 # return status is like in C, zero is successful
+    for client_dir in $fah_dir/[1-9] ; do
+        num=`expr $num + 1`
+        if [ -e $pid_dir/$executable-$num.pid ] ; then
+            running=0
+        fi
+        if ps -ef | grep -vE "grep|ps" | grep "$executable" >/dev/null ; then
+            running=0
+        fi
+    done
+    return $running
+}
+
+################################################################################
+case "$1" in
+    start)  
+        start 
+        ;;
+    stop)
+        stop
+        ;;
+    restart|force-reload|reload)
+        # These are technically supposed to do different things.
+        # In particular, reload means reload the configuration without stopping
+        # the program, which is not possible in this case.
+        stop || exit 1
+	# F@H has trouble starting immediately after stopping
+	for i in $(seq -w 60 -1 1) ; do 
+	    echo -n "Restarting in $i seconds."
+	    sleep 1
+	    echo -ne \\r
+	done
+	start
+        ;;
+    send)
+        # manually send all results to the server
+        # leave client in the state (running or not) as it was found
+        if is_running ; then
+            stop
+            while is_running ; do
+                sleep 1
+            done
+            echo
+            send
+            echo
+            start
+        else
+            send
+        fi
+        ;;
+    status)
+        status
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|reload|force-reload|send|status}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0
