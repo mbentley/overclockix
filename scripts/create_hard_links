@@ -26,7 +26,6 @@ ln -f ./common/i386/config/packages.chroot/libssl0.9.8_0.9.8o-4squeeze14_i386.de
 ln -f ./common/all/auto/clean ./${i}/auto/clean
 ln -f ./common/all/auto/build ./${i}/auto/build
 ln -f ./common/all/config/package-lists/10-overclockix.list.chroot ./${i}/config/package-lists/10-overclockix.list.chroot
-ln -f ./common/all/config/package-lists/20-video_drivers.list.chroot ./${i}/config/package-lists/20-video_drivers.list.chroot
 ln -f ./common/all/config/package-lists/15-virtualbox_guest_additions.list.chroot ./${i}/config/package-lists/15-virtualbox_guest_additions.list.chroot
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix.xml ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix.xml
@@ -69,7 +68,6 @@ ln -f ./common/amd64/config/packages.chroot/aptitude-gui_1.0.0-0_amd64.deb ./${i
 ln -f ./common/all/auto/clean ./${i}/auto/clean
 ln -f ./common/all/auto/build ./${i}/auto/build
 ln -f ./common/all/config/package-lists/10-overclockix.list.chroot ./${i}/config/package-lists/10-overclockix.list.chroot
-ln -f ./common/all/config/package-lists/20-video_drivers.list.chroot ./${i}/config/package-lists/20-video_drivers.list.chroot
 ln -f ./common/all/config/package-lists/15-virtualbox_guest_additions.list.chroot ./${i}/config/package-lists/15-virtualbox_guest_additions.list.chroot
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix.xml ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix.xml
