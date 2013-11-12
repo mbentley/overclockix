@@ -25,7 +25,7 @@ If you would like to verify that the hard links have been created, you can execu
 ```
 find ./common -type f -printf "%n\t%p\n"
 ```
-It will output the number of hard links to each file.  Before executing the script, they should all show "1" for the hard link count.  Afterwards, the files under **./common/i386** and **./common/amd64** should show "3" and the files under **./common/all** should show "5".
+It will output the number of hard links to each file.  Before executing the script, they should all show "1" for the hard link count.  Afterwards, the files under **./common/i386** and **./common/amd64** should show "3" and the files under **./common/all** should show "5".  There may be occasions in which a file will only show "1" after the hard links have been created.  In that case, that would indicate that the file should not be hard linked as it is not in use under any of the builds.
 
 ## Build Instructions
 Make sure that you are in the repository directory (e.g. overclockix/i386_iso-hybrid) and then execute the following commands:
