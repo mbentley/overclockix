@@ -30,13 +30,13 @@ This command will output the number of hard links to each file.  Before executin
 There may be occasions in which a file will only show "1" after the hard links have been created.  In that case, that would indicate that the file should not be hard linked as it is not in use under any of the builds.
 
 ## Build Instructions
-Make sure that you are in the repository directory (e.g. overclockix/i386_iso-hybrid) and then execute the following commands:
+Make sure that you are in the repository directory (e.g. **overclockix/i386_iso-hybrid**) and then execute the following commands:
 ```
 lb clean
 lb config
 lb build
 ```
-There is also a build.sh script which will execute the above commands for you in the directory of each release.
+There is also a **build.sh** script which will execute the above commands for you in the directory of each release.
 
 ## live-build Documentation
 For further information on how to use live-build, see the live-build manual:  http://live.debian.net/manual/stable/index.en.html
