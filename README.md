@@ -9,14 +9,15 @@ In order to work with Overclockix using live-build, you must first meet the foll
 ## Cloning the repository
 If you would like to stay consistent with my build environment, I use the **/opt/live/overclockix** directory.  You can use the following command to create the necessary directory structure and then cd to the destination where you will clone the repository:
 ```
-mkdir -p /opt/live/overclockix
-cd /opt/live/overclockix
+mkdir /opt/live
+cd /opt/live
 ```
 
 From the directory in which you want to clone the repository, execute the following command:
 ```
 git clone https://github.com/mbentley/overclockix.git
 ```
+**Note**: This will clone the repository into a directory named 'overclockix'
 
 ## Re-create hard links for 'common'
 In order to make the management of common files easier, I used hard links on my build system.  These hard link do not transfer properly to github and symlinks do not work with the live-build system.  I have created a script name 'create_hard_links' (found in scripts) that will automatically re-create all of the hard links.
