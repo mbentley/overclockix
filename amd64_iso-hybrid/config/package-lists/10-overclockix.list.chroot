@@ -10,6 +10,7 @@ eject
 
 ### Overclockix packages
 apt-xapian-index
+avahi-autoipd
 boinc
 bonnie++
 btrfs-tools
@@ -53,6 +54,11 @@ memtest86+
 modemmanager
 mtools
 nautilus-open-terminal
+network-manager-gnome
+network-manager-openconnect-gnome
+network-manager-openvpn-gnome
+network-manager-vpnc-gnome
+network-manager-pptp-gnome
 nfs-kernel-server
 ntfsprogs
 ntfs-3g
@@ -83,5 +89,6 @@ unrar
 unzip
 vlc
 wireshark
+wpagui
 xfsprogs
 zip
