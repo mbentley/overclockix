@@ -1,0 +1,16 @@
+#!/bin/bash
+
+wget -O /tmp/hwbotprime-0.8.3.zip http://downloads.hwbot.org/downloads/benchmarks/hwbotprime-0.8.3.zip
+mkdir /opt/hwbotprime
+cd /opt/hwbotprime
+unzip /tmp/hwbotprime-0.8.3.zip
+rm /tmp/hwbotprime-0.8.3.zip
+
+cat << EOF > hwbotprime
+#!/bin/bash
+java -jar /opt/hwbotprime/hwbotprime-0.8.3.jar
+EOF
+
+chmod 775 hwbotprime
+
+ln -s /opt/hwbotprime/hwbotprime /usr/local/bin/hwbotprime
