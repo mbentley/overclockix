@@ -9,7 +9,7 @@ img_type="iso-hybrid"
 
 cd ${basedir}/${arch}_${img_type}
 echo -e "\nexecuting build for ${arch}, ${img_type}...";
-./build.sh
+./build.sh http://acng.casa.mbentley.net
 echo -e "\n\e[01;32mbuild for ${arch}, ${img_type} complete! \e[00m"; echo -ne '\007'; sleep 1; echo -ne '\007'; sleep 1; echo -ne '\007'; echo -n "press enter to continue..."; read
 
 
@@ -19,7 +19,7 @@ img_type="usb-hdd"
 
 cd ${basedir}/${arch}_${img_type}
 echo -e "\nexecuting build for ${arch}, ${img_type}...";
-./build.sh
+./build.sh http://acng.casa.mbentley.net
 echo -e "\n\e[01;32mbuild for ${arch}, ${img_type} complete! \e[00m"; echo -ne '\007'; sleep 1; echo -ne '\007'; sleep 1; echo -ne '\007'; echo -n "press enter to continue..."; read
 
 
@@ -29,7 +29,7 @@ img_type="iso-hybrid"
 
 cd ${basedir}/${arch}_${img_type}
 echo -e "\nexecuting build for ${arch}, ${img_type}...";
-./build.sh
+./build.sh http://acng.casa.mbentley.net
 echo -e "\n\e[01;32mbuild for ${arch}, ${img_type} complete! \e[00m"; echo -ne '\007'; sleep 1; echo -ne '\007'; sleep 1; echo -ne '\007'; echo -n "press enter to continue..."; read
 
 
@@ -39,7 +39,7 @@ img_type="usb-hdd"
 
 cd ${basedir}/${arch}_${img_type}
 echo -e "\nexecuting build for ${arch}, ${img_type}...";
-./build.sh
+./build.sh http://acng.casa.mbentley.net
 echo -e "\n\e[01;32mbuild for ${arch}, ${img_type} complete! \e[00m"; echo -ne '\007'; sleep 1; echo -ne '\007'; sleep 1; echo -ne '\007'; echo -n "press enter to continue..."; read
 
 
