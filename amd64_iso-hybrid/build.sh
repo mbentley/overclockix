@@ -1,5 +1,8 @@
 #!/bin/bash
 
+SCRIPT_HOME="$( cd "$( dirname "$0" )" && pwd )"
+cd $SCRIPT_HOME
+
 lb clean
 
 if [ -z $1 ]
@@ -10,3 +13,5 @@ else
 fi
 
 time lb build
+
+cd - > /dev/null
