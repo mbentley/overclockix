@@ -14,7 +14,8 @@ else
 	lb config --apt-http-proxy "${1}"
 fi
 
-time lb build
+#time lb build
+lb build
 RETVAL=$?
 cd - > /dev/null
 
