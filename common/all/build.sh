@@ -7,8 +7,10 @@ lb clean --cache --all
 
 if [ -z $1 ]
 then
+	echo "no proxy specified"
 	lb config
 else
+	echo "using '${1}' for the apt proxy"
 	lb config --apt-http-proxy "${1}"
 fi
 
