@@ -3,7 +3,7 @@
 SCRIPT_HOME="$( cd "$( dirname "$0" )" && pwd )"
 cd ${SCRIPT_HOME}
 
-lb clean --cache --all
+lb clean
 
 if [ -z ${1} ]
 then
