@@ -1,11 +1,11 @@
 #!/bin/bash
 
 SCRIPT_HOME="$( cd "$( dirname "$0" )" && pwd )"
-cd $SCRIPT_HOME
+cd ${SCRIPT_HOME}
 
 lb clean --cache --all
 
-if [ -z $1 ]
+if [ -z ${1} ]
 then
 	echo "no proxy specified"
 	lb config
@@ -15,5 +15,7 @@ else
 fi
 
 time lb build
-
+RETVAL=$?
 cd - > /dev/null
+
+exit ${RETVAL}
