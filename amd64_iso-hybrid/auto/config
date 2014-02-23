@@ -5,13 +5,16 @@ set -e
 lb config noauto \
 	--distribution wheezy \
 	--archive-areas "main contrib non-free" \
+	--parent-mirror-bootstrap http://ftp.debian.org/debian \
+	--parent-mirror-chroot http://ftp.debian.org/debian \
+	--parent-mirror-chroot-updates http://ftp.debian.org/debian \
+	--parent-mirror-binary http://ftp.debian.org/debian \
+	--parent-mirror-binary-updates http://ftp.debian.org/debian \
 	--mirror-bootstrap http://ftp.debian.org/debian \
 	--mirror-chroot http://ftp.debian.org/debian \
 	--mirror-chroot-updates http://ftp.debian.org/debian \
-	--mirror-chroot-security http://security.debian.org \
 	--mirror-binary http://ftp.debian.org/debian \
 	--mirror-binary-updates http://ftp.debian.org/debian \
-	--mirror-binary-security http://security.debian.org \
 	--architecture amd64 \
 	--linux-flavours amd64 \
 	--binary-images iso-hybrid \
