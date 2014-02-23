@@ -14,9 +14,17 @@ else
 	lb config --apt-http-proxy "${1}"
 fi
 
-#time lb build
-lb build
-RETVAL=$?
+time lb build
+#lb build
+#RETVAL=$?
+
+if [ -f "binary.hybrid.iso" ] || [ -f "binary.img" ]
+then
+	RETVAL="0"
+else
+	RETVAL="1"
+fi
+
 cd - > /dev/null
 
 exit ${RETVAL}
