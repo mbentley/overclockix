@@ -19,4 +19,5 @@ lb build
 RETVAL=$?
 cd - > /dev/null
 
+echo ${RETVAL}
 exit ${RETVAL}
