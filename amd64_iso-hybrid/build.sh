@@ -19,5 +19,4 @@ lb build
 RETVAL=$?
 cd - > /dev/null
 
-exit 1
-#exit ${RETVAL}
+exit ${RETVAL}
