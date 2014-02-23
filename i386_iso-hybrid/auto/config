@@ -5,6 +5,10 @@ set -e
 lb config noauto \
 	--distribution wheezy \
 	--archive-areas "main contrib non-free" \
+	--mirror-bootstrap http://ftp.debian.org/debian \
+	--mirror-chroot-security http://security.debian.org \
+	--mirror-bootstrap http://ftp.debian.org/debian \
+	--mirror-binary-security http://security.debian.org \
 	--architecture i386 \
 	--linux-flavours 486 \
 	--binary-images iso-hybrid \
