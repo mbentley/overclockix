@@ -17,7 +17,6 @@ From the directory in which you want to clone the repository, execute the follow
 ```
 git clone https://github.com/mbentley/overclockix.git
 ```
-**Note**: This will clone the repository into a new directory named **overclockix**
 
 ## Re-create hard links for 'common'
 In order to make the management of common files easier, I used hard links on my build system.  These hard link do not transfer properly to github and symlinks do not work with the live-build system.  I have created a script name **create_hard_links** (found in scripts) that will automatically re-create all of the hard links.
