@@ -1,12 +1,9 @@
 #!/bin/bash
 
-#wget -O /tmp/hwbotprime-0.8.3.zip http://downloads.hwbot.org/downloads/benchmarks/hwbotprime-0.8.3.zip
-wget -O /tmp/hwbotprime.zip http://downloads.hwbot.org/downloads/hwbotprime.zip
-#mkdir /opt/hwbotprime
+wget -0 /tmp/hwbotprime-0.8.3.zip http://downloads.hwbot.org/downloads/benchmarks/hwbotprime-0.8.3.zip
 cd /opt/hwbotprime
-unzip /tmp/hwbotprime.zip
-rm /opt/hwbotprime/benchbot.*
-rm /tmp/hwbotprime.zip
+unzip /tmp/hwbotprime-0.8.3.zip
+rm /tmp/hwbotprime-0.8.3.zip
 
 cat << EOF > hwbotprime
 #!/bin/bash
