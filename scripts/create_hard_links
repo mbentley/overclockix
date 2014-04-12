@@ -30,6 +30,8 @@ ln -f ./common/all/config/package-lists/15-virtualbox_guest_additions.list.chroo
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix.xml ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix.xml
 ln -f ./common/all/config/includes.chroot/usr/share/applications/mprime.desktop ./${i}/config/includes.chroot/usr/share/applications/mprime.desktop
+ln -f ./common/all/config/includes.chroot/usr/share/applications/hwbotprime.desktop ./${i}/config/includes.chroot/usr/share/applications/hwbotprime.desktop
+ln -f ./common/all/config/includes.chroot/opt/hwbotprime/hwbot_icon.png ./${i}/config/includes.chroot/opt/hwbotprime/hwbot_icon.png
 ln -f ./common/all/config/includes.chroot/opt/fah_install/reconfigure.sh ./${i}/config/includes.chroot/opt/fah_install/reconfigure.sh
 ln -f ./common/all/config/includes.chroot/opt/fah_install/CHANGELOG ./${i}/config/includes.chroot/opt/fah_install/CHANGELOG
 ln -f ./common/all/config/includes.chroot/opt/fah_install/README ./${i}/config/includes.chroot/opt/fah_install/README
@@ -73,6 +75,8 @@ ln -f ./common/all/config/package-lists/15-virtualbox_guest_additions.list.chroo
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix_background.jpg
 ln -f ./common/all/config/includes.chroot/usr/share/backgrounds/overclockix.xml ./${i}/config/includes.chroot/usr/share/backgrounds/overclockix.xml
 ln -f ./common/all/config/includes.chroot/usr/share/applications/mprime.desktop ./${i}/config/includes.chroot/usr/share/applications/mprime.desktop
+ln -f ./common/all/config/includes.chroot/usr/share/applications/hwbotprime.desktop ./${i}/config/includes.chroot/usr/share/applications/hwbotprime.desktop
+ln -f ./common/all/config/includes.chroot/opt/hwbotprime/hwbot_icon.png ./${i}/config/includes.chroot/opt/hwbotprime/hwbot_icon.png
 ln -f ./common/all/config/includes.chroot/opt/fah_install/reconfigure.sh ./${i}/config/includes.chroot/opt/fah_install/reconfigure.sh
 ln -f ./common/all/config/includes.chroot/opt/fah_install/CHANGELOG ./${i}/config/includes.chroot/opt/fah_install/CHANGELOG
 ln -f ./common/all/config/includes.chroot/opt/fah_install/README ./${i}/config/includes.chroot/opt/fah_install/README
