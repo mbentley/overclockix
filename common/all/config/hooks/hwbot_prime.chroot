@@ -1,8 +1,6 @@
 #!/bin/bash
 
-#wget -O /tmp/hwbotprime-0.8.3.zip http://downloads.hwbot.org/downloads/benchmarks/hwbotprime-0.8.3.zip
 wget -O /tmp/hwbotprime.zip http://downloads.hwbot.org/downloads/hwbotprime.zip
-#mkdir /opt/hwbotprime
 cd /opt/hwbotprime
 unzip /tmp/hwbotprime.zip
 rm /opt/hwbotprime/benchbot.*
