@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=HWBOT Prime
+GenericName=HWBOT Prime Benchmark
+Type=Application
+Exec=gnome-terminal -e "/usr/local/bin/hwbotprime"
+Categories=Stress;System;Application;
+Icon=/opt/hwbotprime/hwbot_icon.png
