@@ -8,7 +8,7 @@ rm /tmp/hwbotprime.zip
 
 cat << EOF > hwbotprime
 #!/bin/bash
-java -jar /opt/hwbotprime/hwbotprime-0.8.3.jar
+java -jar /opt/hwbotprime/hwbotprime.jar
 EOF
 
 chmod 775 hwbotprime
