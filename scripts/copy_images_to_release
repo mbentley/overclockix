@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# set base destination directory
+base_src="/opt/live/overclockix"
+base_dest="/mnt/overclockix"
+
+### i386_iso-hybrid
+arch="i386"
+img_type="iso-hybrid"
+
+version_dir="${base_dest}/.version_files"
+version_file="${version_dir}/${arch}_${img_type}.ver"
+dest_dir="${base_dest}/${arch}/${img_type}"
+
+cd ${base_src}/${arch}_${img_type}
+
+CountVar=`cat ${version_file}`
+CountVar1=`echo "${CountVar} + .001" | bc`
+
+ver_num=${CountVar1}
+echo ${CountVar1} > ${version_file}
+
+echo -e "\ncopying ${arch}, ${img_type}, '${ver_num}' image to '${dest_dir}'...";
+cp binary.hybrid.iso ${dest_dir}/overclockix-${arch}-${ver_num}.iso
+ls -l ${dest_dir}/overclockix-${arch}-${ver_num}.iso
+
+
+### i386_usb-hdd
+arch="i386"
+img_type="usb-hdd"
+
+version_dir="${base_dest}/.version_files"
+version_file="${version_dir}/${arch}_${img_type}.ver"
+dest_dir="${base_dest}/${arch}/${img_type}"
+
+cd ${base_src}/${arch}_${img_type}
+
+CountVar=`cat ${version_file}`
+CountVar1=`echo "${CountVar} + .001" | bc`
+
+ver_num=${CountVar1}
+echo ${CountVar1} > ${version_file}
+
+echo -e "\ncopying ${arch}, ${img_type}, '${ver_num}' image to '${dest_dir}'...";
+cp binary.img ${dest_dir}/overclockix-${arch}-${ver_num}.img
+ls -l ${dest_dir}/overclockix-${arch}-${ver_num}.img
+
+
+### amd64_iso-hybrid
+arch="amd64"
+img_type="iso-hybrid"
+
+version_dir="${base_dest}/.version_files"
+version_file="${version_dir}/${arch}_${img_type}.ver"
+dest_dir="${base_dest}/${arch}/${img_type}"
+
+cd ${base_src}/${arch}_${img_type}
+
+CountVar=`cat ${version_file}`
+CountVar1=`echo "${CountVar} + .001" | bc`
+
+ver_num=${CountVar1}
+echo ${CountVar1} > ${version_file}
+
+echo -e "\ncopying ${arch}, ${img_type}, '${ver_num}' image to '${dest_dir}'...";
+cp binary.hybrid.iso ${dest_dir}/overclockix-${arch}-${ver_num}.iso
+ls -l ${dest_dir}/overclockix-${arch}-${ver_num}.iso
+
+
+### amd64_usb-hdd
+arch="amd64"
+img_type="usb-hdd"
+
+version_dir="${base_dest}/.version_files"
+version_file="${version_dir}/${arch}_${img_type}.ver"
+dest_dir="${base_dest}/${arch}/${img_type}"
+
+cd ${base_src}/${arch}_${img_type}
+
+CountVar=`cat ${version_file}`
+CountVar1=`echo "${CountVar} + .001" | bc`
+
+ver_num=${CountVar1}
+echo ${CountVar1} > ${version_file}
+
+echo -e "\ncopying ${arch}, ${img_type}, '${ver_num}' image to '${dest_dir}'...";
+cp binary.img ${dest_dir}/overclockix-${arch}-${ver_num}.img
+ls -l ${dest_dir}/overclockix-${arch}-${ver_num}.img
+
+
+echo -e "\ndone."

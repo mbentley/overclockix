@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# set base destination directory
+base_src="/opt/live/overclockix"
+base_dest="/mnt/overclockix"
+
+### i386_iso-hybrid
+arch="i386"
+img_type="iso-hybrid"
+src_dir="${base_src}/${arch}_${img_type}"
+dest_dir="${base_dest}/testing"
+
+cd ${dest_dir}
+echo -e "\ncopying ${arch}, ${img_type} image to 'testing'...";
+rsync -t ${src_dir}/binary.hybrid.iso binary.hybrid_${arch}.iso
+ls -l binary.hybrid_${arch}.iso
+
+
+### i386_usb-hdd
+arch="i386"
+img_type="usb-hdd"
+src_dir="${base_src}/${arch}_${img_type}"
+dest_dir="${base_dest}/testing"
+
+cd ${dest_dir}
+echo -e "\ncopying ${arch}, ${img_type} image to 'testing'...";
+rsync -t ${src_dir}/binary.img binary_${arch}.img
+ls -l binary_${arch}.img
+
+
+### amd64_iso-hybrid
+arch="amd64"
+img_type="iso-hybrid"
+src_dir="${base_src}/${arch}_${img_type}"
+dest_dir="${base_dest}/testing"
+
+cd ${dest_dir}
+echo -e "\ncopying ${arch}, ${img_type} image to 'testing'...";
+rsync -t ${src_dir}/binary.hybrid.iso binary.hybrid_${arch}.iso
+ls -l binary.hybrid_${arch}.iso
+
+
+### amd64_usb-hdd
+arch="amd64"
+img_type="usb-hdd"
+src_dir="${base_src}/${arch}_${img_type}"
+dest_dir="${base_dest}/testing"
+
+cd ${dest_dir}
+echo -e "\ncopying ${arch}, ${img_type} image to 'testing'...";
+rsync -t ${src_dir}/binary.img binary_${arch}.img
+ls -l binary_${arch}.img
+
+echo -e "\ndone."
