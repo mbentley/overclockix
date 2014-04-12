@@ -62,6 +62,7 @@ network-manager-pptp-gnome
 nfs-kernel-server
 ntfsprogs
 ntfs-3g
+openjdk-7-jre
 openssh-server
 parted
 pcmciautils

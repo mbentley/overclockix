@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ssh root@athena /root/scripts/overclockix_create_torrents
+
+echo -e "\ndone."
