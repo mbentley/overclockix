@@ -1,5 +1,27 @@
 #!/bin/bash
 
-echo "Removing array definitions from '/etc/mdadm/mdadm.conf'..."
-sed -i '/^ARRAY/d' /etc/mdadm/mdadm.conf
+#echo "Removing array definitions from '/etc/mdadm/mdadm.conf'..."
+echo "Creating default mdadm.conf..."
+
+echo << EOF > /etc/mdadm/mdadm.conf
+# mdadm.conf
+#
+# Please refer to mdadm.conf(5) for information about this file.
+#
+
+# by default, scan all partitions (/proc/partitions) for MD superblocks.
+# alternatively, specify devices to scan, using wildcards if desired.
+DEVICE partitions
+
+# auto-create devices with Debian standard permissions
+CREATE owner=root group=disk mode=0660 auto=yes
+
+# automatically tag new arrays as belonging to the local system
+HOMEHOST <system>
+
+# instruct the monitoring daemon where to send mail alerts
+MAILADDR root
+EOF
+
+#sed -i '/^ARRAY/d' /etc/mdadm/mdadm.conf
 echo -e  "\ndone."
