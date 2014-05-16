@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#echo "Removing array definitions from '/etc/mdadm/mdadm.conf'..."
 echo "Creating default mdadm.conf..."
 
 cat << EOF > /etc/mdadm/mdadm.conf
@@ -23,5 +22,4 @@ HOMEHOST <system>
 MAILADDR root
 EOF
 
-#sed -i '/^ARRAY/d' /etc/mdadm/mdadm.conf
 echo -e  "\ndone."
