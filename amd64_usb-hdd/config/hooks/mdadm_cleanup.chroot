@@ -3,7 +3,7 @@
 #echo "Removing array definitions from '/etc/mdadm/mdadm.conf'..."
 echo "Creating default mdadm.conf..."
 
-echo << EOF > /etc/mdadm/mdadm.conf
+cat << EOF > /etc/mdadm/mdadm.conf
 # mdadm.conf
 #
 # Please refer to mdadm.conf(5) for information about this file.
