@@ -51,6 +51,7 @@ ln -f ./common/all/config/hooks/bootloader_customization.binary ./${i}/config/ho
 ln -f ./common/all/config/hooks/customizations.chroot ./${i}/config/hooks/customizations.chroot
 ln -f ./common/all/config/hooks/localepurge.chroot ./${i}/config/hooks/localepurge.chroot
 ln -f ./common/all/config/hooks/hwbot_prime.chroot ./${i}/config/hooks/hwbot_prime.chroot
+ln -f ./common/all/config/hooks/mdadm_config.chroot ./${i}/config/hooks/mdadm_config.chroot
 ln -f ./common/all/build.sh ./${i}/build.sh
 done
 
@@ -96,5 +97,6 @@ ln -f ./common/all/config/hooks/bootloader_customization.binary ./${i}/config/ho
 ln -f ./common/all/config/hooks/customizations.chroot ./${i}/config/hooks/customizations.chroot
 ln -f ./common/all/config/hooks/localepurge.chroot ./${i}/config/hooks/localepurge.chroot
 ln -f ./common/all/config/hooks/hwbot_prime.chroot ./${i}/config/hooks/hwbot_prime.chroot
+ln -f ./common/all/config/hooks/mdadm_config.chroot ./${i}/config/hooks/mdadm_config.chroot
 ln -f ./common/all/build.sh ./${i}/build.sh
 done
