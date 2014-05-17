@@ -6,6 +6,9 @@ In order to work with Overclockix using live-build, you must first meet the foll
 - I would strongly suggest using a Debian 7.0 (wheezy) amd64 build system.  You may use an i386 system but you will not be able to build amd64 images.
 - Install **git** and **live-build** packages installed:  `apt-get install git live-build`
 
+## Building using Docker
+In order to help facilitate the building of Overclockix, I have created a Docker image found in my [mbentley/dockerfiles](https://github.com/mbentley/dockerfiles/tree/master/debian/overclockix) repository.  Build instructions are found in the README.
+
 ## Cloning the repository
 If you would like to stay consistent with my build environment, I use the **/opt/live/overclockix** directory.  You can use the following command to create the necessary directory structure and then cd to the destination where you will clone the repository:
 ```
