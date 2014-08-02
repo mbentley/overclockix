@@ -7,7 +7,46 @@ In order to work with Overclockix using live-build, you must first meet the foll
 - Install **git** and **live-build** packages installed:  `apt-get install git live-build`
 
 ## Building using Docker
-In order to help facilitate the building of Overclockix, I have created a Docker image found in my [mbentley/dockerfiles](https://github.com/mbentley/dockerfiles/tree/master/debian/overclockix) repository.  Build instructions are found in the README.
+In order to help facilitate the building of Overclockix, I have added a Dockerfile 
+
+To pull this image:
+`docker pull mbentley/overclockix`
+
+Example usage:
+```
+docker run --privileged -i -t -e aptproxy=http://192.168.56.2:3142 \
+   -e branch=master -v /opt/live:/opt/live mbentley/overclockix build all
+```
+
+You can specify how you would like to launch the build environment:
+
+`bash` or no argument - Starts a bash session inside the container
+
+`build all` - Builds all flavors & image types
+
+`build i386` - Builds all i386 images
+
+`build amd64` - Builds all amd64 images
+
+`build i386_iso-hybrid` - Builds i386; iso-hybrid
+
+`build i386_usb-hdd` - Builds i386; usb-hdd
+
+`build amd64_iso-hybrid` - Builds amd64; iso-hybrid
+
+`build amd64_usb-hdd` - Builds amd64; usb-hdd
+
+`release <version>` - Copies the resulting image files as a release to the appropriate directory
+
+`createtorrents <version>` - Create torrents via `transmission-create` for the specified version
+
+There are also environment variables you may specify:
+
+`aptproxy` - configures live-build to use an apt-proxy (defaults - none)
+
+`branch` - specifies which branch of [Overclockix](https://github.com/mbentley/overclockix) you would like to build (default - master)
+
+*Note:* You must run the container with the `--privileged` argument for debootstrap to work.
 
 ## Cloning the repository
 If you would like to stay consistent with my build environment, I use the **/opt/live/overclockix** directory.  You can use the following command to create the necessary directory structure and then cd to the destination where you will clone the repository:
