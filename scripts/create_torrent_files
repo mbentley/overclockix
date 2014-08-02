@@ -1,5 +1,37 @@
 #!/bin/bash
 
-ssh root@athena /root/scripts/overclockix_create_torrents
+OVERCLOCKIX_VER=${1}
+OVERCLOCKIX_BASE="/mnt/overclockix"
+TORRENTS_FOLDER="${OVERCLOCKIX_BASE}/torrents"
+TRACKERS="-t udp://tracker.openbittorrent.com:80/announce -t udp://tracker.publicbt.com:80/announce"
+
+FILELIST="i386/overclockix-i386-${OVERCLOCKIX_VER}.iso i386/overclockix-i386-${OVERCLOCKIX_VER}.img amd64/overclockix-amd64-${OVERCLOCKIX_VER}.iso amd64/overclockix-amd64-${OVERCLOCKIX_VER}.img"
+
+for i in ${FILELIST}
+do
+	if [ ! -f ${OVERCLOCKIX_BASE}/${i} ]
+	then
+		echo "${OVERCLOCKIX_BASE}/${i} is missing; can't create torrent"
+		exit 1
+	fi
+done
+
+if [ ! -d ${TORRENTS_FOLDER} ]
+then
+	echo "missing torrent directory"
+	exit 0
+fi
+
+if [ ! -d ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER} ]
+then
+	mkdir ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER}
+fi
+
+transmission-create -o ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER}/overclockix-i386-${OVERCLOCKIX_VER}.iso.torrent ${TRACKERS} -c "Overclockix ${OVERCLOCKIX_VER} (i386, iso-hybrid)" ${OVERCLOCKIX_BASE}/i386/overclockix-i386-${OVERCLOCKIX_VER}.iso
+transmission-create -o ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER}/overclockix-i386-${OVERCLOCKIX_VER}.img.torrent ${TRACKERS} -c "Overclockix ${OVERCLOCKIX_VER} (i386, usb-hdd)" ${OVERCLOCKIX_BASE}/i386/overclockix-i386-${OVERCLOCKIX_VER}.img
+transmission-create -o ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER}/overclockix-amd64-${OVERCLOCKIX_VER}.iso.torrent ${TRACKERS} -c "Overclockix ${OVERCLOCKIX_VER} (amd64, iso-hybrid)" ${OVERCLOCKIX_BASE}/amd64/overclockix-amd64-${OVERCLOCKIX_VER}.iso
+transmission-create -o ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER}/overclockix-amd64-${OVERCLOCKIX_VER}.img.torrent ${TRACKERS} -c "Overclockix ${OVERCLOCKIX_VER} (amd64, usb-hdd)" ${OVERCLOCKIX_BASE}/amd64/overclockix-amd64-${OVERCLOCKIX_VER}.img
+
+chmod 775 -R ${TORRENTS_FOLDER}/${OVERCLOCKIX_VER}
 
 echo -e "\ndone."

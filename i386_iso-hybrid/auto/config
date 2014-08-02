@@ -18,6 +18,7 @@ lb config noauto \
 	--architecture i386 \
 	--linux-flavours 486 \
 	--binary-images iso-hybrid \
+	--apt-indices false \
 	--apt-recommends false \
 	--firmware-chroot true \
 	--cache-packages false \

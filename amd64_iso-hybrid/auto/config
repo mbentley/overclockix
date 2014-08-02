@@ -18,6 +18,7 @@ lb config noauto \
 	--architecture amd64 \
 	--linux-flavours amd64 \
 	--binary-images iso-hybrid \
+	--apt-indices false \
 	--apt-recommends false \
 	--firmware-chroot true \
 	--cache-packages false \
