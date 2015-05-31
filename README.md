@@ -15,7 +15,7 @@ To pull this image:
 Example usage:
 ```
 docker run --privileged -i -t -e aptproxy=http://192.168.56.2:3142 \
-   -e branch=master -v /opt/live:/opt/live mbentley/overclockix build all
+  -e branch=master -v /opt/live:/opt/live mbentley/overclockix build all
 ```
 
 You can specify how you would like to launch the build environment:
